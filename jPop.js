@@ -29,18 +29,6 @@
 			this.ja.zIndexs = _zIndex;
 			_zIndex = _zIndex + 2;
 		}
-		if(this.ja.hideBtn){
-			var obj = this;
-			this.ja.hideBtn.click(function(){
-				obj.hide();
-			});
-		}
-		if(this.ja.showBtn){
-			var obj = this;
-			this.ja.showBtn.click(function(){
-				obj.show();
-			});
-		}
 		this.init();
 	};
 
@@ -61,8 +49,8 @@
 		'reset': function(){
 			var _ja = this.ja;
 			_ja.oDom.css({
-				'margin-left':function(){return (-1 * parseInt( _ja.oDom.width() / 2 ) ) + 'px' ;},
-				'top':function(){return parseInt( document.documentElement.scrollTop + (document.documentElement.clientHeight - _ja.oDom.height()) / 2 ) + 'px' }
+				'margin-left':function(){return (-1 * _ja.oDom.width() / 2 ) + 'px' ;},
+				'top':function(){return document.documentElement.scrollTop + (document.documentElement.clientHeight - _ja.oDom.height()) / 2 + 'px' }
 			});
 			return this;
 		},
@@ -79,6 +67,8 @@
             this.ja.oDom.hide();
             this.zIn = false;
             zIndexMax();
+            //console.log(this);
+            //console.log(_popList);
             return this;
 		}
 	}
@@ -107,6 +97,5 @@
         name = name || 'default';
         return $.jPop(this, name);
     };
-
 
 })(jQuery,window,document);

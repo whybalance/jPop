@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{padding: 0; margin: 0;}
+	.ko{width:100%; height: 1500px;  }
+
+	/* 系统自带样式 */
+
+	.jdialog-screen{width: 100%; background:#000; opacity: 0.5; filter:alpha(opacity=50); -moz-opacity: 0.5; position: absolute; z-index:2; top: 0; left: 0;}
+	#jAlertBg{width: 100%; background:#000; opacity: 0.5; position: absolute; z-index:2; top: 0; left: 0;}
+	.jAlert{position: absolute; background:#fff; border: 1px solid #ccc; z-index: 3;}
+
+	/* 用户自行设置样式 */
+	.jAlert{width: 500px; height: 100px; left: 50%; display: none;}
+	#domA{width: 600px; height: 150px; left: 50%; top:200px; background: #f30;}
+	#domB{width: 500px; height: 130px; left: 50%; top:200px; background: #fff;}
+	#domC{width: 300px; height: 250px; left: 50%; top:200px; background: #f00;}
+
+	</style>
+</head>
+<body>
+	<div class="ko"></div>
+	<div class="open">打开第一个窗口</div>
+	<div class="ko"></div>
+
+	<div class="jAlert" id="domA">
+		<h4>第一个窗口</h4>
+		<p>O(∩_∩)O~~</p>
+		<div class="openb">打开第二个窗口</div>
+		<div class="jclearA">关闭</div>
+	</div>
+
+	<div class="jAlert" id="domB">
+		<h4>第二个窗口</h4>
+		<p>O(∩_∩)O~~</p>
+		<div class="openc">打开第三个窗口</div>
+		<div class="jclearB">关闭</div>
+	</div>
+
+	<div class="jAlert" id="domC">
+		<h4>这是第三个窗口</h4>
+		<p>O(∩_∩)O~~</p>
+		<div class="jclearC">关闭</div>
+	</div>
+
+	<script type="text/javascript" src="../public/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="jPop.js"></script>
+	<script type="text/javascript">
+	
+	$('.jclearA').click(function(){
+		$.jPop.get('sa').hide();
+	});
+
+	$('.jclearB').click(function(){
+		$.jPop.get('sb').hide();
+	});
+
+	$('.jclearC').click(function(){
+		$.jPop.get('sc').hide();
+	});
+
+	$('.open').click(function(){
+		var om;
+		if($.jPop.get('sa') === undefined){
+			om = $.jPop.create({
+				oDom: $('#domA'),
+				hideBtn: $('.jAlertClear1'),
+				showBtn: $('.open'),
+				zIndexs: 6 
+			},'sa');
+		}else{
+			om = $.jPop.get('sa')
+		}
+		om.show();
+	});
+
+	$('.openb').click(function(){
+		var om;
+		if($.jPop.get('sb') === undefined){
+			om = $.jPop.create({
+				oDom: $('#domB'),
+				hideBtn: $('.jclearB'),
+				showBtn: $('.openb'),
+				zIndexs: 8 
+			},'sb');
+		}else{
+			om = $.jPop.get('sb')
+		}
+		om.show();
+	});
+
+	$('.openc').click(function(){
+		var om;
+		if($.jPop.get('sc') === undefined){
+			om = $.jPop.create({
+				oDom: $('#domC'),
+				hideBtn: $('.jclearC'),
+				showBtn: $('.openc'),
+				zIndexs: 10 
+			},'sc');
+		}else{
+			om = $.jPop.get('sc')
+		}
+		om.show();
+	});
+
+	</script>
+</body>
+</html>
