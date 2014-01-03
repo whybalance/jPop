@@ -22,7 +22,33 @@
 	</style>
 </head>
 <body>
-	<div class="ko"></div>
+	<div class="ko">
+	这是一个基于jquery的窗口弹出扩展 <br>
+	此版本完全兼容IE6<br>
+	该插件的效果是将已经定义好的窗体内容弹出，并支持多窗体弹出；<br>
+<br>
+<br>
+	最简单的使用方法<br>
+	$.jPop.create({oDom: $('#domA')	});<br>
+<br>
+	建议使用方法<br>
+	$('.open').click(function(){<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;var om;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;if($.jPop.get('sa') === undefined){<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;om = $.jPop.create({<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;oDom: $('#domA'),<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hideBtn: $('.jAlertClear1'),<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showBtn: $('.open'),<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zIndexs: 6 <br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},'sa');<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;}else{<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;om = $.jPop.get('sa')<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;om.show();<br>
+	});<br>
+
+
+	</div>
 	<div class="open">打开第一个窗口</div>
 	<div class="ko"></div>
 

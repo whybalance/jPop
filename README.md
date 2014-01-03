@@ -9,3 +9,18 @@ jPop
 最简单的使用方法
 $.jPop.create({oDom: $('#domA')	});
 
+建议使用方法
+$('.open').click(function(){
+	var om;
+	if($.jPop.get('sa') === undefined){
+		om = $.jPop.create({
+			oDom: $('#domA'),
+			hideBtn: $('.jAlertClear1'),
+			showBtn: $('.open'),
+			zIndexs: 6 
+		},'sa');
+	}else{
+		om = $.jPop.get('sa')
+	}
+	om.show();
+});
